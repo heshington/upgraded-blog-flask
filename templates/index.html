@@ -6,14 +6,15 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html">
-                            {% for blog_post in blogs: %}
+                        {% for blog_post in blogs: %}
+                        <a href="{{ url_for('get_blog', id=blog_post['id'])}}">
+
                             <h2 class="post-title">{{blog_post['title'] }}</h2>
                             <h3 class="post-subtitle">{{blog_post['subtitle'] }}</h3>
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">{{blog_post['author'] }}</a>
+                            <a href="{{ url_for('get_blog', id=blog_post['id'])}}">{{blog_post['author'] }}</a>
                             on {{blog_post['date'] }}
                         </p>
                         {% endfor %}
